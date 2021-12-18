@@ -1,0 +1,16 @@
+---
+- name: Transfer font script
+  template:
+    src: set_font.sh.j2
+    dest: /tmp/set_font.sh
+    mode: 0744
+
+- name: Setting up fonts
+  command: /tmp/set_font.sh
+  when: set_font
+
+- name: Updating .zshrc file
+  template:
+    src: zshrc.j2
+    dest: "{{ home_dir }}/.zshrc"
+    mode: 0644

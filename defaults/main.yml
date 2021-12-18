@@ -1,0 +1,29 @@
+---
+font_size: 13
+set_font: true
+
+# .zshrc config
+zsh_hist_stamps: yyyy-mm-dd
+zsh_case_sensitive: false
+zsh_hyphen_intensitive: false # zsh_case_sensitive should be false
+zsh_autoupdate: auto # disabled | reminder
+zsh_autocorrection: true
+zsh_share_history: no
+zsh_update_interval: 30 # set 0 for disable autoupdates
+zsh_editor: # mcedit
+zsh_term: xterm-256color
+zsh_mc_solarized_skin: no
+zsh_load_etc_profile: yes
+zsh_plugin_lines:
+  - zgen oh-my-zsh
+  - zgen oh-my-zsh plugins/git
+  - zgen oh-my-zsh plugins/sudo
+  - zgen oh-my-zsh plugins/docker
+  - zgen oh-my-zsh plugins/docker-compose
+  - zgen oh-my-zsh plugins/command-not-found
+  - zgen load romkatv/powerlevel10k powerlevel10k
+  - zgen load urbainvaes/fzf-marks
+  - zgen load Aloxaf/fzf-tab
+  - zgen load zsh-users/zsh-autosuggestions
+  - zgen load zsh-users/zsh-syntax-highlighting
+  - zgen load joshskidmore/zsh-fzf-history-search

@@ -1,0 +1,52 @@
+---
+- name: Updating package list for {{ ansible_os_family }}
+  set_fact:
+    packages: "{{ packages + redhat_packages }}"
+  when: ansible_os_family == 'RedHat'
+
+- name: Updating package list for {{ ansible_os_family }}
+  set_fact:
+    packages: "{{ packages + archlinux_packages }}"
+  when: ansible_os_family == 'ArchLinux'
+
+- name: Updating package cache
+  package:
+    update_cache: yes
+  become: yes
+  become_user: root
+
+- name: Installing common packages
+  package:
+    name: "{{ item }}" 
+    state: present
+  loop: "{{ packages }}"
+  ignore_errors: yes
+  become: yes
+  become_user: root
+
+- name: Pring home_dir
+  debug:
+    msg: "{{ home_dir }}"
+  become: no
+
+- name: Installing oh-my-zsh framework
+  shell: set -o pipefail && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed 's/read -r opt/opt=Y/g')"
+  args:
+    creates: "{{ home_dir }}/.oh-my-zsh/oh-my-zsh.sh"
+
+- name: Pring home_dir
+  debug:
+    msg: "{{ home_dir }}"
+
+- name: Installing zgen plugin manager
+  git:
+    repo: https://github.com/tarjoilija/zgen.git
+    dest: "{{ home_dir }}/.zgen"
+    version: master
+
+- name: Installing fonts
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ home_dir }}/.local/share/fonts"
+    mode: 0644
+  loop: "{{ fonts }}"
