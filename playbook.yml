@@ -1,0 +1,3 @@
+- hosts: all
+  roles:
+    - sandzhaj.zsh_p10k
