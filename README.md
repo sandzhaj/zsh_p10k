@@ -11,8 +11,10 @@ Supported OS:
   - ArchLinux
   - Fedora (from 33 to current)
   - CentOS (7,8, 8 Stream, 9 Stream)
+
 Software:
   - ansible
+
 Terminals (see Usage):
   - Tilix
   - gnome-terminal
@@ -20,10 +22,10 @@ Terminals (see Usage):
 Role Variables
 --------------
 
-font_size: 13
-set_font: true
+- font_size: 13
+- set_font: true
 
-# .zshrc config
+.zshrc config
 - zsh_case_sensitive: false
 - zsh_hyphen_intensitive: false # zsh_case_sensitive should be false
 - zsh_autoupdate: auto # disabled | reminder
