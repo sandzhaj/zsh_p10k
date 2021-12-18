@@ -46,7 +46,7 @@ Usage
 Just run:
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/sandzhaj/zsh_p10k/main/install.sh | sed 's/read -r opt/opt=Y/g')"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/sandzhaj/zsh_p10k/main/install.sh)"
 ```
 
 License
