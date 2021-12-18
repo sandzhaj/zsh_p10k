@@ -13,6 +13,9 @@ Supported OS:
   - CentOS (7,8, 8 Stream, 9 Stream)
 Software:
   - ansible
+Terminals (see Usage):
+  - Tilix
+  - gnome-terminal
 
 Role Variables
 --------------
@@ -48,6 +51,9 @@ Just run:
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sandzhaj/zsh_p10k/main/install.sh)"
 ```
+
+For supported Terminals it also configures font for your default profile. If you terminal app is not it supported list, you should manually change your terminal font to "MesloLGS NF"
+After ansible finished, reopen your terminal app and go through powerlevel10k setup wizard.
 
 License
 -------
