@@ -4,7 +4,8 @@ supported_terminals:
   - tilix
 font_name: "MesloLGS NF {{ font_size }}"
 packages: [zsh, curl, fzf, git]
-redhat_packages: [epel-release, util-linux-user, util-linux-ng]
+fedora_packages: [util-linux-user]
+el_packages: [epel-release, util-linux-ng]
 archlinux_packages: [util-linux]
 home_dir: "{{ ansible_env.HOME }}"
 fonts: 

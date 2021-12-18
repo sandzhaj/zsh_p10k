@@ -1,13 +1,18 @@
 ---
-- name: Updating package list for {{ ansible_os_family }}
+- name: Updating package list for Fedora
   set_fact:
-    packages: "{{ packages + redhat_packages }}"
-  when: ansible_os_family == 'RedHat'
+    packages: "{{ packages + fedora_packages }}"
+  when: ansible_distribution == 'Fedora'
 
-- name: Updating package list for {{ ansible_os_family }}
+- name: Updating package list for CentOS | RHEL
+  set_fact:
+    packages: "{{ packages + centos_packages }}"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Updating package list for Archlinux
   set_fact:
     packages: "{{ packages + archlinux_packages }}"
-  when: ansible_os_family == 'ArchLinux'
+  when: ansible_os_family == 'Archlinux'
 
 - name: Updating package cache
   package:
@@ -20,7 +25,6 @@
     name: "{{ item }}" 
     state: present
   loop: "{{ packages }}"
-  ignore_errors: yes
   become: yes
   become_user: root
 
