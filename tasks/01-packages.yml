@@ -6,7 +6,7 @@
 
 - name: Updating package list for CentOS | RHEL
   set_fact:
-    packages: "{{ packages + centos_packages }}"
+    packages: "{{ packages + el_packages }}"
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Updating package list for Archlinux
